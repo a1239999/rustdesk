@@ -1,0 +1,14 @@
+name: hfm
+
+on:
+  schedule:
+    # schedule build every night
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-flutter-nightly-build:
+    uses: ./.github/workflows/hfm-build.yml
+    secrets: inherit
+    with:
+      upload-artifact: true
